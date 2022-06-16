@@ -1,5 +1,7 @@
 let inputbox = document.getElementById("bar");
 let subbot = document.getElementById("subbot");
+let modalthin = document.querySelector(".alert");
+modalthin.style.display="none";
 let totalprice = document.querySelector(".finalans") ;
 let products = {
     cokebottle : {
@@ -60,7 +62,7 @@ subbot.onclick = function barcodetaker(){
     bigdiv.classList.add("border-opacity-75");
     let r = parseInt(inputbox.value);
     //1
-    if(products.cokebottle.barcode == r)
+    if(products.cokebottle.barcode == r )
     {
     let smalldiv1 = document.createElement("div");
     smalldiv1.classList.add("col");
@@ -243,7 +245,11 @@ mainol.appendChild(newli);
     //10
     else
     {
-        console.log("no projucts");
+        console.log("no products");
+        modalthin.style.display="block";
+        setTimeout(()=>{
+            modalthin.style.display="none"; 
+        },3000)
     }
     console.log(sum);
     totalprice.value = sum;
